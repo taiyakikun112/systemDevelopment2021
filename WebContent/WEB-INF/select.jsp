@@ -68,15 +68,15 @@
 		<table>
 			<tr>
 				<td>ID</td>
-				<td><input type="text" name="insertId" /></td>
+				<td><input type="text" name="updateId" /></td>
 			</tr>
 			<tr>
 				<td>名前</td>
-				<td><input type="text" name="insertName" /></td>
+				<td><input type="text" name="updateName" /></td>
 			</tr>
 			<tr>
 				<td>写真</td>
-				<td><input type="text" name="insertPicture" /></td>
+				<td><input type="text" name="updatePicture" /></td>
 			</tr>
 			<tr>
 				<td></td>

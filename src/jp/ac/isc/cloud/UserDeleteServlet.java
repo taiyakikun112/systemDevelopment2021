@@ -26,21 +26,16 @@ public class UserDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
+
 			Connection users = null;
 			try {
-			request.setCharacterEncoding("utf-8");
-			Class.forName("com.mysql.jdbc.Driver");
-			users = DriverManager.getConnection("jdbc:mysql://localhost/servlet_db","root","");
+			//request.setCharacterEncoding("utf-8");
+			users = DBConnection.openConnection();
 			String id = request.getParameter("deleteId");
 			Statement state = users.createStatement();
 			state.executeUpdate("DELETE FROM user_table WHERE id='" + id + "'");
-			state.close();
-			users.close();
+			DBConnection.closeConnection(users, state);
 			response.sendRedirect("/select"); //UserSelectServletを呼び出す
-			}catch(ClassNotFoundException e) {
-			e.printStackTrace();
-			}
 			}catch(SQLException e){
 			e.printStackTrace();
 			}
